@@ -175,12 +175,12 @@ angular.module('seqApp', ['org.ekstep.question']).controller('seqQuestionFormCon
       if (type == 'q') {
         telemetryObject.target.id = 'questionunit-sequence-question-add-' + data.assetMedia.type;
         $scope.seqFormData.question[data.assetMedia.type] = org.ekstep.contenteditor.mediaManager.getMediaOriginURL(data.assetMedia.src);
-        data.assetMedia.type == 'audio' ? $scope.seqFormData.question.audioName = data.assetMedia.name : '';
+        $scope.seqFormData.question.audioName =  data.assetMedia.type == 'audio' ? data.assetMedia.name : '';
         $scope.questionMedia[data.assetMedia.type] = media;
       } else {
         telemetryObject.target.id = 'questionunit-sequence-option-add-' + data.assetMedia.type;
         $scope.seqFormData.options[index][data.assetMedia.type] = org.ekstep.contenteditor.mediaManager.getMediaOriginURL(data.assetMedia.src);
-        data.assetMedia.type == 'audio' ? $scope.seqFormData.options[index].audioName = data.assetMedia.name : '';
+        $scope.seqFormData.options[index].audioName = data.assetMedia.type == 'audio' ? data.assetMedia.name : '';
         $scope.optionsMedia[data.assetMedia.type][index] = media;
       }
       if (!$scope.$$phase) {
